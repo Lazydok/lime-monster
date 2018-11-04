@@ -1,0 +1,16 @@
+{
+  "currentMenu": "HOME",
+  "currentPage": {
+    "pageTitle": "HOME",
+    "loading": true
+  },
+  "toggleMenu": false,
+  "contactForm": {
+    "name": "",
+    "phone": "",
+    "email": "",
+    "content": "",
+    "currentStep": 0
+  },
+  "programStep": 0
+}
