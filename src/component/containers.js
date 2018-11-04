@@ -5,6 +5,7 @@ import detailMenuItems from './ui/detailMenuItems'
 import Page from './ui/pages/page'
 import pageContact from './ui/pages/contact'
 import pageProgram from './ui/pages/program'
+import pageInfo from './ui/pages/info'
 import { changeMenu, changePage, changeToggleMenu, changeContactForm, changeContactStep, contactFormReset, programSetStep } from '../store/actions'
 
 export const MainMenu = connect(
@@ -111,4 +112,15 @@ export const PageProgramMain = connect(
         },
     })
 )(pageProgram)
+
+export const PageInfoMain = connect(
+    state =>
+        ({
+
+        }),
+    dispatch =>
+        ({
+
+        })
+)(pageInfo)
 

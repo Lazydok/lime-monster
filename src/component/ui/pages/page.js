@@ -1,7 +1,7 @@
 import React from 'react'
 import Home from './home'
 import { AboutMain, AboutIdea, AboutCondition, AboutSNS } from './about'
-import { PageContactMain, PageProgramMain } from "../../containers";
+import { PageContactMain, PageProgramMain, PageInfoMain } from "../../containers";
 
 const Page = ({ currentPage }) => {
     switch (currentPage.pageTitle) {
@@ -19,6 +19,8 @@ const Page = ({ currentPage }) => {
             return <PageProgramMain />
         case "CONTACT":
             return <PageContactMain />
+        case "INFO":
+            return <PageInfoMain/>
         default:
             return <div>Not Found Page: {currentPage.pageTitle}</div>
     }
