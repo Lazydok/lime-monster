@@ -1,4 +1,5 @@
 import C from './constants'
+import fetch from 'isomorphic-fetch'
 
 export const changeMenu = (title) => ({
     type: C.CHANGE_MENU,
@@ -45,3 +46,31 @@ export const programSetStep = (step) => ({
     type: C.PROGRAM_SET_STEP,
     step,
 })
+
+const parseResponse = response => response.json()
+
+const logError = error => console.error(error)
+
+const fetchThenDispatch = (dispatch, url, method, body) =>
+    fetch(url, {
+            method,
+            body,
+            headers: { 'Content-Type': 'application/json'}
+        })
+        .then(parseResponse)
+        .then(dispatch)
+        .catch(logError)
+
+export const contactFormSend = (contents) => dispatch => {
+    console.log(contents)
+    fetchThenDispatch(
+        dispatch,
+        'http://localhost:5000/apply',
+        'PUT',
+        JSON.stringify({
+            'name': contents.name,
+            'phone': contents.phone,
+            'email': contents.email,
+            'content': contents.content
+        })
+    )}

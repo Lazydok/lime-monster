@@ -37,7 +37,8 @@ const styles = theme => ({
     },
 });
 
-const contact = ({ classes, onChangeHandle = f => f, onChangeStep = f => f, resetForm = f => f, contactForm }) => {
+const contact = ({ classes, onChangeHandle = f => f, onChangeStep = f => f, resetForm = f => f, contactForm,
+                 sendForm = f => f}) => {
     const getSteps = () => {
         return ["가맹문의 신청서", "작성 중...", "전송완료!"]
     }
@@ -144,6 +145,7 @@ const contact = ({ classes, onChangeHandle = f => f, onChangeStep = f => f, rese
                         className={classes.button}
                         onClick={() => {
                             onChangeStep(3)
+                            sendForm(contents)
                         }}
                     >
                         보내기

@@ -6,7 +6,7 @@ import Page from './ui/pages/page'
 import pageContact from './ui/pages/contact'
 import pageProgram from './ui/pages/program'
 import pageInfo from './ui/pages/info'
-import { changeMenu, changePage, changeToggleMenu, changeContactForm, changeContactStep, contactFormReset, programSetStep } from '../store/actions'
+import { changeMenu, changePage, changeToggleMenu, changeContactForm, changeContactStep, contactFormReset, programSetStep, contactFormSend} from '../store/actions'
 
 export const MainMenu = connect(
     state =>
@@ -67,7 +67,6 @@ export const DetailMenuItems = connect(
                 }
             }
         }),
-    null
 )(detailMenuItems)
 
 export const MainPage = connect(
@@ -91,7 +90,10 @@ export const PageContactMain = connect(
             },
             resetForm() {
                 dispatch(contactFormReset())
-            }
+            },
+            sendForm(contents) {
+                dispatch(contactFormSend(contents))
+            },
         })
 )(pageContact)
 
