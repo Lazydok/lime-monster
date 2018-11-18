@@ -65,7 +65,7 @@ export const contactFormSend = (contents) => dispatch => {
     console.log(contents)
     fetchThenDispatch(
         dispatch,
-        'http://localhost:5000/apply',
+        C.RESTFUL_API_ADDR + 'apply',
         'PUT',
         JSON.stringify({
             'name': contents.name,
